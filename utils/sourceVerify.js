@@ -17,12 +17,13 @@ function sourceVerify(signature, timestamp, nonce, echostr) {
     var arr = [];
     arr.push(timestamp);
     arr.push(nonce);
-    arr.push(echostr);
+    arr.push(token);
     arr = arr.sort();
     var str = "";
     arr.forEach(function (i) {
         str = str + i;
     });
+    console.log('排序后: ',str);
     //sha1加密
     str = sha1(str);
     console.log("加密后str: ",str);
