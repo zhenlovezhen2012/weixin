@@ -5,5 +5,6 @@
 var token = "jianxun";
 
 module.exports = {
-    token: token
+    token: token,
+    weixinAccount: process.env.WEIXINACCOUNT
 };
