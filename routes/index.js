@@ -33,7 +33,7 @@ index.post('/',function(req,res){
         console.log("收到消息: ",result);
         //返回xml
         var reMsg = {
-            ToUserName: result.ToUserName,
+            ToUserName: result.FromUserName,
             FromUserName: 'gh_cd563fc0c468',
             CreateTime: parseInt(Date.now()/1000),
             MsgType: 'text',
