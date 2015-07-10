@@ -34,7 +34,7 @@ index.post('/',function(req,res){
         //返回xml
         var reMsg = {
             ToUserName: result.FromUserName,
-            FromUserName: 'gh_cd563fc0c468',
+            FromUserName: global.weixinAccount,
             CreateTime: parseInt(Date.now()/1000),
             MsgType: 'text',
             Content: '您发送的信息是:'+result.Content
