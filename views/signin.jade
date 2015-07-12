@@ -1,0 +1,64 @@
+include ./admin-info-string
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		title 后台管理界面
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		// basic styles
+		link(href='/admin/css/bootstrap.min.css', rel='stylesheet')
+		link(rel='stylesheet', href='/admin/css/font-awesome.min.css')
+		//if IE 7
+			link(rel='stylesheet', href='/admin/css/font-awesome-ie7.min.css')
+		// page specific plugin styles
+		// fonts
+		// ace styles
+		link(rel='stylesheet', href='/admin/css/ace.min.css')
+		link(rel='stylesheet', href='/admin/css/ace-rtl.min.css')
+		//if lte IE 8
+			link(rel='stylesheet', href='/admin/css/ace-ie.min.css')
+		// inline styles related to this page
+		// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+		//if lt IE 9
+			script(src='/admin/js/html5shiv.js')
+			script(src='/admin/js/respond.min.js')
+	body.login-layout
+		.main-container
+			.main-content
+				.row
+					.col-sm-10.col-sm-offset-1
+						.login-container
+							.center
+								h1
+									span.red 微信后台
+								h4.blue © Viathink
+							.space-6
+							.position-relative
+								#login-box.login-box.visible.widget-box.no-border
+									.widget-body
+										.widget-main
+											h4.header.blue.lighter.bigger
+												i.icon-coffee.green
+												| 请输入账号和密码登录系统
+											.space-6
+											+admin-info-string(messages)
+											form(method='POST',action='/admin')
+												fieldset
+													label.block.clearfix
+														span.block.input-icon.input-icon-right
+															input.form-control(type='email', name='email', placeholder='邮箱')
+															i.icon-user
+													label.block.clearfix
+														span.block.input-icon.input-icon-right
+															input.form-control(type='password', name='password', placeholder='密码')
+															i.icon-lock
+													.space
+													.clearfix
+														button.width-35.pull-right.btn.btn-sm.btn-primary(type='submit')
+															i.icon-key
+															| 登录
+													.space-4
+
+										// /widget-main
+										.toolbar.clearfix
+

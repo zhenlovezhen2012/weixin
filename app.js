@@ -9,8 +9,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-
+var admin = require('./routes/admin');
+var api = require('./routes/api');
 var app = express();
 
 // view engine setup
@@ -25,9 +25,16 @@ app.use(bodyParser.text({type: '*/xml'}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(req, res, next) {
+    if(req.user){
+        res.locals.user = req.user;
+    }
+    next();
+});
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/admin', admin);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

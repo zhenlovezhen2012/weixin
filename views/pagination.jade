@@ -1,0 +1,11 @@
+mixin pagination(items)
+	//.count Showing #{items.first} to #{items.last} of #{items.total}
+	ul.pagination
+		li(class=items.page == 1?'disabled':'')
+			a(href=items.page != 1?(link_to({page: items.page-1})):'javascript:void(0)') &laquo;
+		- for (var i=1;i<=items.totalPages;i++){
+			li(class=items.page == i ? 'active' : null)
+				a(href=(link_to({page: i})))= i
+		- }
+		li(class=items.page == items.totalPages?'disabled':'')
+			a(href=items.page != items.totalPages?(link_to({page: items.page+1})):'javascript:void(0)') &raquo;

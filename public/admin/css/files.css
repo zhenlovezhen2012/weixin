@@ -1,0 +1,26 @@
+#uploadImg{
+	font-size:12px;
+	overflow:hidden;
+	position:absolute
+   	height: 38px;
+    line-height: 38px;
+    margin-bottom: 9px;
+}
+#file{
+	position:absolute;
+	z-index:100;
+
+	font-size:60px;
+	opacity:0;
+	filter:alpha(opacity=0);
+	margin-top:-5px;
+}
+#image{
+	position:absolute;
+	z-index:100;
+
+	font-size:60px;
+	opacity:0;
+	filter:alpha(opacity=0);
+	margin-top:-5px;
+}

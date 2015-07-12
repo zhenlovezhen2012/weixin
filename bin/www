@@ -7,6 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('jadeTest:server');
 var http = require('http');
+var accessTokenService = require('../services/accessTokenService');
+var logger = require('../services/logService').getLogger('RequestService');
 
 /**
  * Get port from environment and store in Express.
@@ -24,11 +26,16 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-
+accessTokenService.tokenInit(function(err,token){
+    if(err){
+        logger.error("初始化token失败,系统启动失败...");
+        process.exit(0);
+    }else{
+        server.listen(port);
+        server.on('error', onError);
+        server.on('listening', onListening);
+    }
+});
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -86,6 +93,6 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  console.log('working on ' + bind);
+  logger.info('working on ' + bind);
   debug('Listening on ' + bind);
 }

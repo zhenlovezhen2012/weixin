@@ -1,5 +1,20 @@
-extends layout
+extends ./admin-default
+include ./admin-content-header
 
 block content
-  h1= title
-  p Welcome to #{title}
+	+admin-content-header(title)
+	.row
+		.col-xs-12
+			// PAGE CONTENT BEGINS
+			.alert.alert-block.alert-success
+				button.close(type='button', data-dismiss='alert')
+					i.icon-remove
+				i.icon-ok.green
+				| 欢迎使用
+				strong.green
+					| 微信 ｜ 后台管理系统
+					small   (v1.0)
+			.row
+				input(type='text',id='menuName',placeholder='创建点击菜单')
+				button.btn.btn-info.btn-sm(id='createMenu') 创建菜单
+

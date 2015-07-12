@@ -5,7 +5,7 @@ var xml2js = require('xml2js');
 var parseString = xml2js.parseString;
 var builder = new xml2js.Builder({rootName:"xml"});
 var global = require('../global');
-var msgRespService = require('../service/msgRespService');
+var msgRespService = require('../services/msgRespService');
 
 /* GET home page. */
 index.get('/', function(req, res, next) {
